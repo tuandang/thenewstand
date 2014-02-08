@@ -1,5 +1,5 @@
 <!-- 
-    Source code by: Microsoft 
+    Template source code by: Microsoft 
 -->
 <Application 
     x:Class="sdkRSSReaderCS.App"
