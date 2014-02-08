@@ -1,0 +1,113 @@
+<phone:PhoneApplicationPage
+    x:Class="sdkRSSReaderCS.PivotPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+
+
+
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+   
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot Title="the newstand" Loaded="Pivot_Loaded">
+            
+            <!--Pivot item one-->
+            <phone:PivotItem Header="techcrunch">
+                
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,12,0">
+
+                    <Button Content="Load Feed" Height="72" HorizontalAlignment="Left" Margin="167,-167,0,0" Name="loadFeedButton" VerticalAlignment="Top" Width="273" Click="loadFeedButton_Click" />
+
+                    <ListBox Name="feedListBox" Height="549" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Width="444" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="feedListBox_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top">
+                                    <TextBlock  FontSize="28" Name="feedTitle" TextWrapping="Wrap" Margin="12,0,0,0" HorizontalAlignment="Left" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Title.Text, Converter={StaticResource RssTextTrimmer}}" />
+
+                                    <TextBlock Name="feedSummary" TextWrapping="Wrap" Margin="12,0,0,0" Text="{Binding Summary.Text, Converter={StaticResource RssTextTrimmer}}" />
+                                    <TextBlock Name="feedPubDate" Foreground="{StaticResource PhoneSubtleBrush}" Margin="12,0,0,10" Text="{Binding PublishDate.DateTime}" />
+                                    <TextBlock Name="space" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="20,10,0,0" Name="border1" VerticalAlignment="Top" Width="438" />
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="12,576,0,0" x:Name="border1_Copy" VerticalAlignment="Top" Width="438" Grid.Row="1" />
+                </Grid>
+    
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="the hacker news">
+                
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPane2" Grid.Row="1" Margin="0,0,12,0">
+
+                    <Button Content="Load Feed" Height="72" HorizontalAlignment="Left" Margin="167,-167,0,0" Name="loadFeedButton2" VerticalAlignment="Top" Width="273" Click="loadFeedButton_Click2" />
+
+                    <ListBox Name="feedListBox2" Height="549" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Width="444" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="feedListBox_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top">
+                                    <TextBlock  FontSize="28" Name="feedTitle" TextWrapping="Wrap" Margin="12,0,0,0" HorizontalAlignment="Left" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Title.Text, Converter={StaticResource RssTextTrimmer}}" />
+
+                                    <TextBlock Name="feedSummary2" TextWrapping="Wrap" Margin="12,0,0,0" Text="{Binding Summary.Text, Converter={StaticResource RssTextTrimmer}}" />
+                                    <TextBlock Name="feedPubDate2" Foreground="{StaticResource PhoneSubtleBrush}" Margin="12,0,0,10" Text="{Binding PublishDate.DateTime}" />
+                                    <TextBlock Name="space2" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="20,10,0,0" Name="border2" VerticalAlignment="Top" Width="438" />
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="12,576,0,0" x:Name="border2_Copy" VerticalAlignment="Top" Width="438" Grid.Row="1" />
+                </Grid>
+                
+            </phone:PivotItem>
+
+            <!--Pivot item three.-->
+            <phone:PivotItem Header="microsoft news">
+                <!--ContentPanel - place additional content here-->
+                <Grid x:Name="ContentPane3" Grid.Row="1" Margin="0,0,12,0">
+
+                    <Button Content="Load Feed" Height="72" HorizontalAlignment="Left" Margin="167,-167,0,0" Name="loadFeedButton3" VerticalAlignment="Top" Width="273" Click="loadFeedButton_Click3" />
+
+                    <ListBox Name="feedListBox3" Height="549" HorizontalAlignment="Left" Margin="20,17,0,0" VerticalAlignment="Top" Width="444" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="feedListBox_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel VerticalAlignment="Top">
+                                    <TextBlock  FontSize="28" Name="feedTitle" TextWrapping="Wrap" Margin="12,0,0,0" HorizontalAlignment="Left" Foreground="{StaticResource PhoneAccentBrush}" Text="{Binding Title.Text, Converter={StaticResource RssTextTrimmer}}" />
+
+                                    <TextBlock Name="feedSummary3" TextWrapping="Wrap" Margin="12,0,0,0" Text="{Binding Summary.Text, Converter={StaticResource RssTextTrimmer}}" />
+                                    <TextBlock Name="feedPubDate3" Foreground="{StaticResource PhoneSubtleBrush}" Margin="12,0,0,10" Text="{Binding PublishDate.DateTime}" />
+                                    <TextBlock Name="space3" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="20,10,0,0" Name="border3" VerticalAlignment="Top" Width="438" />
+                    <Border BorderBrush="{StaticResource PhoneSubtleBrush}" BorderThickness="1" Height="2" HorizontalAlignment="Left" Margin="12,576,0,0" x:Name="border3_Copy" VerticalAlignment="Top" Width="438" Grid.Row="1" />
+                </Grid>
+                
+            </phone:PivotItem>
+            
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
